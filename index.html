@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>パスワード認証ページ</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding-top: 100px; }
+        input, button { padding: 10px; font-size: 16px; margin: 5px; }
+    </style>
+</head>
+<body>
+
+    <h2>パスワードを入力してください</h2>
+    
+    <!-- パスワード入力欄 -->
+    <input type="password" id="passwordInput" placeholder="パスワード">
+    
+    <!-- 送信ボタン -->
+    <button onclick="checkPassword()">送信</button>
+
+    <script>
+        function checkPassword() {
+            // 入力された値を取得
+            const userInput = document.getElementById("passwordInput").value;
+            
+            if (!userInput) {
+                alert("パスワードを入力してください");
+                return;
+            }
+
+            // 【ここがポイント】入力された文字に「.html」をつけて、そのURLへ強制移動します
+            // 例: 「secret123」と入力されたら「/secret123.html」に飛びます
+            location.href = "/" + userInput + ".html";
+        }
+    </script>
+
+</body>
+</html>
